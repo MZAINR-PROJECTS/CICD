@@ -28,9 +28,10 @@ jobs:
 
       - name: Merge from Other Repository
         run: |
-          git remote add other_repo https://github.com/gilangherdiansyah80/Project_Capstone_EcoSync.git
+          git checkout -b merge_branch main
+          git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
           git fetch other_repo
-          git checkout -b merge_branch other_repo/main
-          git checkout main
+          
+          git checkout other_repo/production
           git merge --allow-unrelated-histories merge_branch
           
