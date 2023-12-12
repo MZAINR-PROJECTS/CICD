@@ -1,0 +1,31 @@
+name: Merge from Other Repository
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.PERSONAL_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "zainrizqulloh@gmail.com"
+          git config --global user.name "MZAINR"
+
+      - name: Merge from Other Repository
+        run: |
+          git remote add other_repo https://github.com/gilangherdiansyah80/Project_Capstone_EcoSync.git
+          git fetch other_repo
+          git checkout -b merge_branch other_repo/main
+          git checkout main
+          git merge --allow-unrelated-histories merge_branch
+          git push origin main
