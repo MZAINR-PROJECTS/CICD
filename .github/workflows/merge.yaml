@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GITHUB_TOKEN: ${{ secrets.WRITE_ACCESS }}
+      GITHUB_TOKEN: ${{ secrets.WKWKWK }}
 
     steps:
       - name: Checkout repository
