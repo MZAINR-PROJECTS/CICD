@@ -18,8 +18,9 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.email "zainrizqulloh@gmail.com"
+          git config --global user.name "MZAINR"
+          git config --global credential.username "MZAINR"
 
       - name: Merge from Other Repository
         run: |
