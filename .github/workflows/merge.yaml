@@ -27,5 +27,5 @@ jobs:
           git fetch other_repo
           git checkout -b merge_branch other_repo/main
           git checkout main
-          git merge merge_branch
+          git merge --allow-unrelated-histories merge_branch
           git push origin main
