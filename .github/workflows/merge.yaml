@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GITHUB_TOKEN: ${{ secrets.PERSONAL_KEY }}
+      GITHUB_TOKEN: ${{ secrets.COBA }}
 
     steps:
       - name: Checkout repository
