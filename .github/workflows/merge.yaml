@@ -1,0 +1,38 @@
+name: Merge from Other Repository
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.COBA }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Use version 3 of actions/checkout
+        with:
+          token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "zainrizqulloh@gmail.com"
+          git config --global user.name "MZAINR"
+          git config --global credential.username "MZAINR"
+      - name: Print Remote Info
+        run: git ls-remote origin
+
+      - name: Merge from Other Repository
+        run: |
+          git checkout -b merge_branch main
+          git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
+          git fetch other_repo
+
+          git checkout -b local_main --track other_repo/main
+          git merge --allow-unrelated-histories merge_branch
+          git push other_repo main
+
