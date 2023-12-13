@@ -35,8 +35,10 @@ jobs:
     - name: Merge to main
       run: git merge origin/dev --no-ff --no-commit
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.COBA }}
 
     - name: Push to main
       run: |
+        git commit -m "{now}"
         git push origin main
+        
