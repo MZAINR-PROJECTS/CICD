@@ -31,6 +31,7 @@ jobs:
     - name: Merge to Main
       if: success()
       run: |
+          git checkout dev
           git config user.name "MZAINR"
           git config user.email "zainrizqulloh@gmail.com"
           git checkout main
