@@ -46,10 +46,7 @@ jobs:
       run: |
         git fetch --prune --tags
         git branch -r
-        git checkout main
-        git merge --allow-unrelated-histories dev
-        git commit -m "push production"
-        git push
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
 
