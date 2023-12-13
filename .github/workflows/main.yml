@@ -36,7 +36,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set Git Identity
+    - name: Set Git Identitas
       run: |
         git config user.email "zainrizqulloh@gmail.com"
         git config user.name "MZAINR"
