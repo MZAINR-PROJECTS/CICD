@@ -36,7 +36,7 @@ jobs:
           git checkout main
           git merge dev
 
-    - name: Push Changes to my Repo
+    - name: Push Changes to branch main
       if: success()
       run: |
           git checkout dev
