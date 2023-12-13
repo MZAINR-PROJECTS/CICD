@@ -42,6 +42,5 @@ jobs:
         git config --global user.email "zainrizqulloh@gmail.com"
         git config --global user.name "MZAINR"
 
-        git commit -m "{now}"
         git push origin main
         
