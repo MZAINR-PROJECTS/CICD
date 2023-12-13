@@ -40,9 +40,13 @@ jobs:
       run: |
           git config --global user.em ail "zainrizqulloh@gmail.com"
           git config --global user.name "MZAINR"
-          git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
-          git fetch other_repo
+          
+          git clone https://github.com/MZAINR-PROJECTS/CICD.git
+          git pull origin main
+          git push
+          
           git merge other_repo/main
           git push
+
 
 
