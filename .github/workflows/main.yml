@@ -3,7 +3,8 @@ name: ESLint Check and Auto-Merge
 on:
   push:
     branches:
-      - *
+      - dev
+      - main
 
 jobs:
   lint:
