@@ -3,7 +3,7 @@ name: Push Changes on Success
 on:
   push:
     branches:
-      - main
+      - development
 
 jobs:
   lint-and-test:
@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
+      
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -28,30 +28,17 @@ jobs:
     - name: Linting
       run: npm run lint
 
-    # - name: Checkout gilang's Repository
-    #   uses: actions/checkout@v2
-    #   with:
-    #      repository: "MZAINR-PROJECTS/CICD"
-    #      ref: 'main' # Ganti dengan branch yang diinginkan
-    #      token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
-
-    - name: Push Changes to other Repository
-      env:
-        GITHUB_TOKEN: ${{ secrets.COBA }}
+    - name: Merge to Main
       if: success()
       run: |
           git config user.name "MZAINR"
           git config user.email "zainrizqulloh@gmail.com"
-        
-          gh auth login --with-token "${GITHUB_TOKEN}" --hostname github.com
-          git remote add destination_repo https://github.com/mazharidesky/ci-cd-test.git
-          git fetch origin
           git checkout main
-          git push destination_repo main
+          git merge development
 
-
-
-
-
-
-
+    - name: Push Changes to other Repository
+      if: success()
+      run: |
+          git config user.name "MZAINR"
+          git config user.email "zainrizqulloh@gmail.com"
+          git push origin main
