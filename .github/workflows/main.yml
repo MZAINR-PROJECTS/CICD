@@ -40,5 +40,9 @@ jobs:
     - name: Push to main
       run: |
         git commit -m "{now}"
+
+        git config --global user.email "zainrizqulloh@gmail.com"
+        git config --global user.name "MZAINR"
+
         git push origin main
         
