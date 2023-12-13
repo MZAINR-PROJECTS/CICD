@@ -41,7 +41,7 @@ jobs:
         git fetch --prune --tags
         git branch -r
         git checkout main
-        git merge dev
+        git merge --allow-unrelated-histories dev
         git commit -m "push production"
         git push
 
