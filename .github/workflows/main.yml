@@ -27,7 +27,7 @@ jobs:
   auto-merge:
     runs-on: ubuntu-latest
     needs: lint
-    if: success() # Tambahkan kondisi ini
+    if: success() # Tambahkan kondisi ini wkkwk
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
