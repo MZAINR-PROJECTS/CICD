@@ -28,12 +28,12 @@ jobs:
     - name: Linting
       run: npm run lint
 
-    # - name: Checkout other's Repository
+    # - name: Checkout gilang's Repository
     #   uses: actions/checkout@v2
     #   with:
-    #     repository: "mazharidesky/ci-cd-test"
-    #     ref: 'main' # Ganti dengan branch yang diinginkan
-    #     token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
+    #      repository: "MZAINR-PROJECTS/CICD"
+    #      ref: 'main' # Ganti dengan branch yang diinginkan
+    #      token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
 
     - name: Push Changes to other Repository
       env:
@@ -44,7 +44,6 @@ jobs:
           git config user.email "zainrizqulloh@gmail.com"
         
           gh auth login --with-token "${GITHUB_TOKEN}" --hostname github.com
-    
           git remote add destination_repo https://github.com/mazharidesky/ci-cd-test.git
           git fetch origin
           git checkout main
