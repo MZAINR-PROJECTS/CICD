@@ -39,6 +39,7 @@ jobs:
     - name: Push Changes to my Repo
       if: success()
       run: |
+          git checkout dev
           git config user.name "MZAINR"
           git config user.email "zainrizqulloh@gmail.com"
           git push origin main
