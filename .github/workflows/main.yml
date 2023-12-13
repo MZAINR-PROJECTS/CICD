@@ -44,9 +44,6 @@ jobs:
           git clone https://github.com/MZAINR-PROJECTS/CICD.git
           git pull origin main
           git push
-          
-          git merge other_repo/main
-          git push
 
 
 
