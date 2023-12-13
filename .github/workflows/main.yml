@@ -1,0 +1,47 @@
+name: Push Changes on Success
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Installations
+      run: npm install
+
+    - name: Linting
+      run: npm run lint
+
+    - name: Checkout other's Repository
+      uses: actions/checkout@v2
+      with:
+        repository: "mazharidesky/ci-cd-test"
+        ref: 'main' # Ganti dengan branch yang diinginkan
+        token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
+
+    - name: Push Changes to other Repository
+      if: success()
+      run: |
+          git config --global user.em ail "zainrizqulloh@gmail.com"
+          git config --global user.name "MZAINR"
+          git fetch other_repo
+          git merge other_repo/main
+          git push
+
+
