@@ -36,7 +36,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Merge to main
+    - name: Set Git Identity
+      run: |
+        git config user.email "zainrizqulloh@gmail.com"
+        git config user.name "MZAINR"
+      env:
+        GITHUB_TOKEN: ${{ secrets.COBA }}
+
+    - name: Perform Git Operations
       run: |
         git fetch --prune --tags
         git branch -r
@@ -44,8 +51,8 @@ jobs:
         git merge --allow-unrelated-histories dev
         git commit -m "push production"
         git push
-        git config --global user.email "zainrizqulloh@gmail.com"
-        git config --global user.name "MZAINR"
+      env:
+        GITHUB_TOKEN: ${{ secrets.COBA }}
 
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
