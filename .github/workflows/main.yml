@@ -34,10 +34,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      with:
-        repository: 'MZAINR-PROJECTS/CICD'
-        ref: 'dev' # Ganti dengan branch yang diinginkan
-        token: ${{ secrets.COBA }}
 
     - name: Set Git Identitas
       run: |
@@ -50,6 +46,7 @@ jobs:
       run: |
         git fetch --prune --tags
         git branch -r
+        git checkout dev
         git push origin dev:main
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
