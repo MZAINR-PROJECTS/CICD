@@ -44,8 +44,8 @@ jobs:
         git merge --allow-unrelated-histories dev
         git commit -m "push production"
         git push
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+        git config --global user.email "zainrizqulloh@gmail.com"
+        git config --global user.name "MZAINR"
 
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
