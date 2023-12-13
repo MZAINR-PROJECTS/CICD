@@ -1,47 +1,20 @@
-name: ESLint Check and Auto-Merge
+name: Git Branch -r Example
 
 on:
   push:
     branches:
-      - dev
       - main
+      - dev
 
 jobs:
-  lint:
+  git_branch_list:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Friend's Repository
-      uses: actions/checkout@v2
-      with:
-        repository: 'MZAINR-PROJECTS/CICD'
-        ref: 'main' # Ganti dengan branch yang diinginkan
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 14
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run ESLint
-      run: npm run lint
-
-  auto-merge:
-    runs-on: ubuntu-latest
-    needs: lint
-    if: success() 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Merge to main
-      run: |
-        git branch -r
-
-      env:
-        GITHUB_TOKEN: ${{ secrets.COBA }}
-
-        
-        
+      - name: List Remote Branches
+        run: |
+          git fetch --prune --tags
+          git branch -r
