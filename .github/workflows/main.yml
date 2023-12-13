@@ -3,7 +3,7 @@ name: Push Changes on Success
 on:
   push:
     branches:
-      - development
+      - dev
 
 jobs:
   lint-and-test:
@@ -34,7 +34,7 @@ jobs:
           git config user.name "MZAINR"
           git config user.email "zainrizqulloh@gmail.com"
           git checkout main
-          git merge development
+          git merge dev
 
     - name: Push Changes to other Repository
       if: success()
