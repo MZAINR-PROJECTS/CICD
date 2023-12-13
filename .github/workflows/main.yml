@@ -40,7 +40,7 @@ jobs:
       run: |
           git remote add destination_repo https://github.com/mazharidesky/ci-cd-test.git
           git fetch origin
-          git checkout -b main origin/main
+          git checkout main
           git push destination_repo main
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
