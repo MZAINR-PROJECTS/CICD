@@ -38,7 +38,8 @@ jobs:
     - name: Push Changes to other Repository
       if: success()
       env:
-        GITHUB_TOKEN: ${{ secrets.COBA }}
+        token: ${{ secrets.COBA }}
+        ref: 'main'
       run: |
           git remote add destination_repo https://github.com/mazharidesky/ci-cd-test.git
           git fetch origin
