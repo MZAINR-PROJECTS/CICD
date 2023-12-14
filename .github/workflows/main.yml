@@ -48,10 +48,10 @@ jobs:
 
     - name: Perform Git Operations
       run: |
-        git fetch --prune --tags
-        git branch -r
-        git pull
-        git push origin dev:main
+        git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
+        git fetch other_repo
+        git merge other_repo/main
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
 
