@@ -37,8 +37,8 @@ jobs:
 
     - name: Set Git Identitas
       run: |
-        git config user.email "zainrizqulloh@gmail.com"
-        git config user.name "MZAINR"
+        git config user.email "zainrizqulloh3@gmail.com"
+        git config user.name "MZAINR-PROJECTS"
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
 
