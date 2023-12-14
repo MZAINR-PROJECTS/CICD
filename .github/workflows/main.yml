@@ -48,7 +48,7 @@ jobs:
         git branch -r
         git pull
         git push origin dev:main
-        git checkout origin/main
+        git checkout main
         git pull
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
