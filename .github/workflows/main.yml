@@ -1,9 +1,9 @@
 name: ESLint Check and Auto-Merge
 
 on:
-  push:
+  pull request:
     branches:
-      - dev
+      - main
 
 jobs:
   lint:
@@ -48,8 +48,6 @@ jobs:
         git branch -r
         git pull
         git push origin dev:main
-        git checkout main
-        git pull
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
 
