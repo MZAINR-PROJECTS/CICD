@@ -42,7 +42,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
 
-    - name: Perform Git Operations
+    - name: Perform Git Operation
       run: |
         git fetch --prune --tags
         git branch -r
