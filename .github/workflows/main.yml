@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Friend's Repository
+    - name: Checkout Friend's Repositorys
       uses: actions/checkout@v2
       with:
         repository: 'MZAINR-PROJECTS/CICD'
