@@ -47,7 +47,6 @@ jobs:
         git fetch --prune --tags
         git branch -r
         git checkout dev
-        git pull origin main
         git push origin dev:main
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
