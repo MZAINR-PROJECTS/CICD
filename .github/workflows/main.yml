@@ -35,7 +35,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set Git Identitas
+    - name: Set Git Identity
       run: |
         git config user.email "zainrizqulloh@gmail.com"
         git config user.name "MZAINR"
@@ -47,6 +47,7 @@ jobs:
         git fetch --prune --tags
         git branch -r
         git checkout dev
+        git pull origin main
         git push origin dev:main
       env:
         GITHUB_TOKEN: ${{ secrets.COBA }}
