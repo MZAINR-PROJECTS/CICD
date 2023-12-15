@@ -33,7 +33,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'MZAINR/Capstone_Project' 
-        token: ${{ secrets.COBA }}
 
     - name: Push Changes to Your Repository
       if: success()
