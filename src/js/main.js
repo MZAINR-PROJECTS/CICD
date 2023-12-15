@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-loop-func */
 import 'regenerator-runtime';
@@ -6,11 +7,18 @@ import '../scss/responsive.scss';
 import '../components/navbarComponent';
 import '../components/footerComponent';
 import '../components/head-custom';
-import Pagination from './pagination';
 import Bencana from './cardBencana';
-
-const myPagination = new Pagination();
-myPagination.init();
+import WeatherApp from './cuaca';
+import Pagination from './pagination';
+import Cuaca from './cuacaLandingPage';
+import BencanaHome from './bencanaLandingPage';
 
 const myBencana = new Bencana();
 myBencana.init();
+
+const weatherApp = new WeatherApp();
+const myCuaca = new Cuaca();
+
+const myPagination = new Pagination();
+
+const myBencanaHome = new BencanaHome();
