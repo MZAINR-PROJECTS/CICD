@@ -16,8 +16,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.COBA }}
+      
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -33,8 +32,8 @@ jobs:
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
       with:
-        repository: 'MZAINR/Capstone_Project'
-        ref: 'main' 
+        repository: 'MZAINR/Capstone_Project' 
+        token: ${{ secrets.COBA }}
 
     - name: Push Changes to Your Repository
       if: success()
