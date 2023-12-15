@@ -1,4 +1,4 @@
-name: Push Changes on Success
+name: Push Changes on Successs
 
 on:
   push:
