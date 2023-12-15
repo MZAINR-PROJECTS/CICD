@@ -30,8 +30,9 @@ jobs:
 
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
-      with:
+      with: ${{ secrets.COBA }}
         repository: 'MZAINR/Capstone_Project'
+        token: 
         ref: 'main' 
 
     - name: Push Changes to Your Repository
