@@ -30,7 +30,7 @@ jobs:
 
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
-      with: ${{ secrets.COBA }}
+      with:
         repository: 'MZAINR/Capstone_Project'
         token: ${{ secrets.COBA }}
         ref: 'main' 
@@ -45,5 +45,6 @@ jobs:
           git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
           git branch -r
+          git checkout main
           git merge other_repo/main --allow-unrelated-histories -Xtheirs
           git push origin main
