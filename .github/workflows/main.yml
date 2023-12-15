@@ -43,7 +43,7 @@ jobs:
           git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
           git branch -r
-          git merge other_repo/main
+          git merge other_repo/main --allow-unrelated-histories
 
 
-          # --allow-unrelated-histories --no-rebase -Xtheirs
+          #  --no-rebase -Xtheirs
