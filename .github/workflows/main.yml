@@ -1,4 +1,3 @@
-
 name: Push Changes on Success
 
 on:
@@ -17,6 +16,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.COBA }}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -37,6 +38,8 @@ jobs:
 
     - name: Push Changes to Your Repository
       if: success()
+      env:
+        GITHUB_TOKEN: ${{ secrets.COBA }}
       run: |
           git config --global user.email "zainrizqulloh@gmail.com"
           git config --global user.name "MZAINR"
@@ -45,4 +48,3 @@ jobs:
           git branch -r
           git merge other_repo/main --allow-unrelated-histories -Xtheirs
           git push origin main
-
