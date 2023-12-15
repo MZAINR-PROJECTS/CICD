@@ -34,7 +34,6 @@ jobs:
       with:
         repository: 'MZAINR/Capstone_Project'
         ref: 'main' 
-        token: ${{ secrets.COBA }}
 
     - name: Push Changes to Your Repository
       if: success()
