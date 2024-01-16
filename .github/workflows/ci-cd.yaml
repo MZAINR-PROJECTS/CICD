@@ -1,4 +1,4 @@
-name: Push Changes on Successs
+name: Push Changes on Success
 
 on:
   push:
@@ -26,13 +26,16 @@ jobs:
     - name: Installations
       run: npm install
 
-    - name: Linting
+    - name: Linting and End-to-End Testing
       run: npm run lint
+      
+    - name: End-to-End Testing
+      run: npm run e2e
 
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
       with:
-        repository: 'MZAINR/Capstone_Project' 
+        repository: 'Arulkharisma/EcoSync' 
         token: ${{ secrets.COBA3 }}
 
     - name: Push Changes to Your Repository
@@ -40,8 +43,6 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.COBA3 }}
       run: |
-          git config --global user.email "zainrizqulloh@gmail.com"
-          git config --global user.name "MZAINR"
           git remote add other_repo https://github.com/gilangherdiansyah80/Project_Capstone_EcoSync.git
           git fetch other_repo
           git branch -r

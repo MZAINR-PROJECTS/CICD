@@ -14,6 +14,22 @@
         width: max-content;
     }
 }
+@media only screen and (max-width: 767px) {
+   .detail-bencana-content{
+    flex-direction: column-reverse;
+   }
+
+   .contact{
+    display: flex;
+    justify-content: center;
+}
+// footer styling
+.contact-details{
+    width: 50%;
+}
+
+   
+}
 
 @media only screen and (max-width: 560px) {
     .border-cuaca {
@@ -48,23 +64,64 @@
         gap: 15px;
     }
     .cuaca{
-        overflow-x: scroll;
-        overflow-y: hidden;
-        white-space: nowrap;
-        margin: auto;
-        justify-content: center;
         gap: 15px;
     }
-    .cuaca-item{
-        // width: 500px;
-        // padding: 0;
+    .contact{
+        display: flex;
+        justify-content: center;
+    }
+    // footer styling
+    .contact-details{
+        width: 50%;
     }
 }
 
 @media only screen and (max-width: 434px) {
+
     .cuaca-hourly {
         margin: auto;
         display: flex;
         justify-content: center;
+    }
+
+    .card-margin {
+        margin: auto 25px auto 25px;
+        justify-content: center;
+    }
+
+    .carousel-inner {
+        border-radius: 7px;
+    }
+
+    #carouselExampleIndicators {
+        max-width: 320px;
+        height: 175px;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    #carouselExampleIndicators img{
+        max-width: 340px;
+        height: 175px;
+    }
+
+    .bencana_home {
+        margin: 0;
+        padding: 0;
+    }
+
+    .detail-bencana-width {
+        max-width: 360px;
+    }
+
+    .footer-text {
+        padding-top: 30px;
+        max-width: 350px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .navbar-brand {
+        max-width: 215px;
     }
 }

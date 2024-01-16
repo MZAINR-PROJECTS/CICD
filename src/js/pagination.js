@@ -2,23 +2,51 @@ import dataDonation from '../data/dataDonation';
 
 class Pagination {
   constructor() {
-    this.cardsPerPage = 4;
+    this.cardsPerPage = 8;
     this.currentPage = 1;
     this.totalCards = 0;
     this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
+    this.filteredData = [];
 
     this.createCards = this.createCards.bind(this);
     this.updatePaginationLinks = this.updatePaginationLinks.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.search = this.search.bind(this);
+
+    this.searchInput = document.getElementById('searchInput');
+    this.searchInput.addEventListener('input', this.handleSearch);
+
+    this.simulateFetchData();
+  }
+
+  handleSearch() {
+    this.currentPage = 1; // Reset to the first page when searching
+    this.search();
+    this.createCards();
+    this.updatePaginationLinks();
+  }
+
+  search() {
+    const searchTerm = this.searchInput.value.toLowerCase();
+    this.filteredData = dataDonation.filter((data) => (
+      data.title.toLowerCase().includes(searchTerm)
+        || data.description.toLowerCase().includes(searchTerm)
+    ));
+
+    this.totalCards = this.filteredData.length;
+    this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
   }
 
   createCards() {
     const cardContainer = document.getElementById('cardContainer');
     cardContainer.innerHTML = '';
 
+    const dataToUse = this.filteredData.length > 0 ? this.filteredData : dataDonation;
+
     const startIndex = (this.currentPage - 1) * this.cardsPerPage;
     const endIndex = Math.min(startIndex + this.cardsPerPage, this.totalCards);
 
-    const cardContents = dataDonation.slice(startIndex, endIndex).map((data) => {
+    const cardContents = dataToUse.slice(startIndex, endIndex).map((data) => {
       if (data && data.links) {
         return `
           <a href="${data.links}" target="_blank" style="text-decoration: none;">
@@ -26,7 +54,7 @@ class Pagination {
               <img src="${data.imageCard}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title fs-6">${data.title}</h5>
-                <p class="card-text mt-4">${data.description}</p>
+                <p class="card-text mt-4 hidden-description">${data.description}</p>
                 <p class="fw-bold mb-0 mt-4">
                   <img src="${data.imageSmall}" class="rounded img-fluid" width="30px" alt="">
                   ${data.titleImageSmall} <i class="bi bi-patch-check-fill ms-2" style="color: #10a8e5;"></i>
@@ -95,21 +123,19 @@ class Pagination {
     paginationContainer.appendChild(nextLi);
   }
 
-  // Simulate fetching total number of cards (replace this with your logic)
   simulateFetchData() {
     setTimeout(() => {
-      this.totalCards = 8; // Set the total number of cards
+      this.totalCards = dataDonation.length; // Set the total number of cards
       this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
       this.createCards();
       this.updatePaginationLinks();
     }, 500);
   }
-
-  init() {
-    document.addEventListener('DOMContentLoaded', () => {
-      this.simulateFetchData();
-    });
-  }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cardDonation = new Pagination();
+  cardDonation.currentPage();
+});
 
 export default Pagination;

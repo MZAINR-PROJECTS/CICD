@@ -13,18 +13,15 @@
         <navbar-custom>
     </div>
 
-     <div class="container">
-      <div class="card-title py-2"><h3>Temukan letak Bencana</h3></div>
-      <div class="row">
-        <div class="col">
-            <!-- search button -->
+     <div class="container detail-bencana-width">
+      <div class="card-title py-2"><h3>Temukan Bencana</h3></div>
+      <div class="row d-flex flex-wrap detail-bencana-content">
+        <div id="scrollable-container" class="col-md-6">
             <!-- breaking news -->
-            <div>
-              <div class="scrollable-container" id="cardBencana"></div>
-            </div>
+              <div id="cardBencana"></div>
         </div>
         <!-- Maps -->
-        <div class="col">
+        <div class="col-md-6 mb-5" style="height: 500px;">
           <div id="map" class="h-100 w-100 rounded-5"></div>
         </div>
       </div>

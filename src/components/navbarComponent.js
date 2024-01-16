@@ -24,7 +24,7 @@ class NavbarCustom extends HTMLElement {
                     <a class="nav-link" href="cuaca.html">Cuaca</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="detail-bencana.html">Bencana</a>
+                    <a class="nav-link" href="detail-bencana.html">Bencana alam</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="donasi.html">Donasi</a>
