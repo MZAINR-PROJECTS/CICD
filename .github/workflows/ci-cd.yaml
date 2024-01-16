@@ -40,7 +40,7 @@ jobs:
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
       with:
-        repository: 'Arulkharisma/EcoSync' 
+        repository: 'MZAINR/PROJECT_CAPSTONE' 
         token: ${{ secrets.COBA3 }}
 
     - name: Push Changes to Your Repository
@@ -48,7 +48,7 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.COBA3 }}
       run: |
-          git remote add other_repo https://github.com/gilangherdiansyah80/Project_Capstone_EcoSync.git
+          git remote add other_repo https://github.com/https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
           git branch -r
           git checkout main
