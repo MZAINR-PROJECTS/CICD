@@ -27,12 +27,12 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'MZAINR/Capstone_Project' 
-        token: ${{ secrets.COBA3 }}
+        token: ${{ secrets.COBA4 }}
 
     - name: Push Changes to Your Repository
       if: success()
       env:
-        SUPER_SECRET: ${{ secrets.COBA3 }}
+        SUPER_SECRET: ${{ secrets.COBA4 }}
       run: |
           git config --global user.email "zainrizqulloh@gmail.com"
           git config --global user.name "MZAINR"
