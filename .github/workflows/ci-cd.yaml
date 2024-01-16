@@ -41,7 +41,7 @@ jobs:
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
       with:
-        repository: 'MZAINR-PROJECTS/CICD' 
+        repository: 'MZAINR/Capstone_Project' 
         token: ${{ secrets.COBA4 }}
 
     - name: Push Changes to Your Repository
@@ -51,7 +51,7 @@ jobs:
       run: |
           git config --global user.email "zainrizqulloh@gmail.com"
           git config --global user.name "MZAINR"
-          git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
+          git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
           git branch -r
           git checkout main
