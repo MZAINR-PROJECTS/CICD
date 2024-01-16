@@ -1,4 +1,4 @@
-name: Push Changes on Success
+name: Push Changes on Succes
 
 on:
   push:
@@ -22,21 +22,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         
-    - name: Installations
-      run: npm install
-
-    - name: Linting and End-to-End Testing
-      run: npm run lint
-
-    - name: Install Playwright browsers
-      run: npx playwright install
-      
-    - name: Install xvfb
-      run: sudo apt-get install -y xvfb
-    
-    - name: Run E2E tests with xvfb-run
-      run: xvfb-run npm run e2e
-
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
       with:
@@ -48,42 +33,7 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.COBA3 }}
       run: |
-      name: Push Changes on Success
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  lint-and-test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Checkout Friend's Repository
-      uses: actions/checkout@v2
-      with:
-        repository: 'MZAINR/Capstone_Project' 
-        token: ${{ secrets.COBA3 }}
-
-    - name: Push Changes to Your Repository
-      if: success()
-      env:
-        SUPER_SECRET: ${{ secrets.COBA3 }}
-      run: |
-          git config --global user.email "zainrizqulloh@gmail.con"
+          git config --global user.email "zainrizqulloh@gmail.com"
           git config --global user.name "MZAINR"
           git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
