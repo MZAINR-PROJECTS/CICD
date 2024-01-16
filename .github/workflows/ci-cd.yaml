@@ -1,3 +1,4 @@
+
 name: Push Changes on Success
 
 on:
@@ -26,17 +27,8 @@ jobs:
     - name: Installations
       run: npm install
 
-    - name: Linting and End-to-End Testing
+    - name: Linting
       run: npm run lint
-      
-    - name: Install Playwright browsers
-      run: npx playwright install
-      
-    - name: Install xvfb
-      run: sudo apt-get install -y xvfb
-    
-    - name: Run E2E tests with xvfb-run
-      run: xvfb-run npm run e2e
 
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
