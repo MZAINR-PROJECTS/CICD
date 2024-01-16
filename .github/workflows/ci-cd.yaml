@@ -83,7 +83,7 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.COBA3 }}
       run: |
-	        git config --global user.email "zainrizqulloh@gmail.con"
+          git config --global user.email "zainrizqulloh@gmail.con"
           git config --global user.name "MZAINR"
           git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
